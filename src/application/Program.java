@@ -1,9 +1,9 @@
 package application;
 
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Scanner;
 
 import model.entities.Reservation;
@@ -14,6 +14,11 @@ public class Program {
 		Scanner sc = new Scanner(System.in);
 
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
+		
+		
+		
+		
 
 		System.out.print(" Room Number : ");
 		int number = sc.nextInt();
@@ -23,6 +28,7 @@ public class Program {
 		Date checkIn = sdf.parse(sc.next());
 
 		System.out.print("Check-out (dd/MM/yyyy) : \n");
+
 		Date checkOut = sdf.parse(sc.next());
 
 		if (checkOut.before(checkIn)) {
@@ -43,28 +49,20 @@ public class Program {
 
 			System.out.println("Check-Out date : (dd/MM/yyy) : ");
 			checkOut = sdf.parse(sc.next());
-
-			Date now = new Date();
-
-			if (checkIn.before(now) || checkOut.before(now)) {
-
-				System.out.println("Error in Reservation : Reservation dates for update must be future");
-			} else if (checkOut.before(checkIn)) {
-
-				System.out.println("Error in Reservation : Check-Out Date must be after check-In date");
-
-			} else {
-
-				reservation.updateDates(checkIn, checkOut);
-
-				System.out.println("Reservation: " + reservation);
-
-			}
+		
+			
+			System.out.print("Updates: " + updateDates(checkOut, checkOut) );
+			
 
 		}
 
 		sc.close();
 
+	}
+
+	private static String updateDates(Date checkOut, Date checkOut2) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
